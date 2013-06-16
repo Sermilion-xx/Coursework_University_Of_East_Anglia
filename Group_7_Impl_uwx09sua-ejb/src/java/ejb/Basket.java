@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import javax.ejb.Stateful;
 
 /**
- *dsfds
+ *dsfds1111
  * @author azamatibragimov
  */
 @Stateful(name="Basket", mappedName="Basket")
