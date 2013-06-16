@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <!-- The name attribute gives the name that the persistence unit will have
+  when it's loaded inside JBoss.
+  This is what you use in the PersistenceContext annotation in your class.
+  -->
+  <persistence-unit name="userPU" transaction-type="JTA">
+    <!-- This is a reference to the datasource that is used.
+    By keeping this seperate it allow the container to pool database connections
+    for you, improving performance. It also provide as extra layer of indirection
+    allowing the details of the database to be kept seperate from this code.
+    -->
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>
+    <jta-data-source>java:jboss/datasources/userDS</jta-data-source>
+    <properties>
+      <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+    </properties>
+  </persistence-unit>
+</persistence>
